@@ -19,10 +19,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbar">
             <div class="navbar-nav">
-                <a href="/login" class="nav-item nav-link" id="login">Login</a>
-                <a href="/sign-up" class="nav-item nav-link" id="signUP">Sign Up</a>
-                <a href="/logout" class="nav-item nav-link" id="logout">Logout</a>
+                {% if user.is_authenticated %}
                 <a href="/" class="nav-item nav-link" id="home">Home</a>
+                <a href="/logout" class="nav-item nav-link" id="logout">Logout</a>
+                {%else%}
+                <a href="/login" class="nav-item nav-link" id="login">Login</a>
+                <a href="/sign-up" class="nav-item nav-link" id="signUp">Sign Up</a>
+                {%endif%}
             </div>
         </div>
     </nav>
